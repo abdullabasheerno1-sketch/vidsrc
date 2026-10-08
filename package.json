@@ -1,16 +1,15 @@
 {
-  "name": "vidsrc-api",
+  "name": "vidsrc-scraper",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
-    "axios": "^1.6.0",
-    "cheerio": "^1.0.0-rc.12",
-    "crypto-js": "^4.2.0",
+    "@sparticuz/chromium": "^121.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
     "express": "^4.18.2",
-    "random-useragent": "^0.5.0"
+    "node-fetch": "^3.3.2",
+    "p-limit": "^5.0.0",
+    "playwright-core": "^1.41.0"
   }
 }
