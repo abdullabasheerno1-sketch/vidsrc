@@ -1,1 +1,1 @@
-export const vidsrcBase = 'https://vidsrc.sh'
+export const vidsrcBase = 'https://vidsrc.sh/';
