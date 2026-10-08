@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 
 app.get('/', (req, res) => {
     res.status(200).json({
-        intro: "Unofficial vidsrc.to API",
+        intro: "Unofficial vidsrc API",
         routes: {
             movie: "/:movieTMDBid",
             show: "/:showTMDBid/:seasonNumber/:episodeNumber"
@@ -57,7 +57,7 @@ app.get('/:movieTMDBid', async(req, res) => {
         });
 		const doc = load(subData.data);
         const sourcesCode = doc('a[data-id]').attr('data-id');
-        const subtitlesFetch = await axios.get(`https://vidsrc.to/ajax/embed/episode/${sourcesCode}/subtitles`, {
+        const subtitlesFetch = await axios.get(`${vidsrcBase}/ajax/embed/episode/${sourcesCode}/subtitles`, {
             headers: { "User-Agent": randomUseragent.getRandom(), "Referer": `${vidsrcBase}/` }
         });
         subtitles = await subtitlesFetch.data;
@@ -120,7 +120,7 @@ app.get('/:showTMDBid/:seasonNum/:episodeNum', async(req, res) => {
         });
         const doc = load(subData.data);
         const sourcesCode = doc('a[data-id]').attr('data-id');
-        const subtitlesFetch = await axios.get(`https://vidsrc.to/ajax/embed/episode/${sourcesCode}/subtitles`, {
+        const subtitlesFetch = await axios.get(`${vidsrcBase}/ajax/embed/episode/${sourcesCode}/subtitles`, {
             headers: { "User-Agent": randomUseragent.getRandom(), "Referer": `${vidsrcBase}/` }
         });
         subtitles = await subtitlesFetch.data;
